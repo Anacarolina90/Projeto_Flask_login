@@ -1,0 +1,79 @@
+Documentação da API para o Projeto de Login e Validação de Senha
+Visão Geral
+Este projeto Flask é uma aplicação de registro e login que oferece funcionalidades para criar contas de usuário, fazer login, fazer logout e acessar um painel de controle após o login.
+
+URL Base
+A URL base para todas as rotas é: http://localhost:5000/
+
+Endpoints
+1. GET /
+Descrição: Exibe a página inicial do projeto.
+Método: GET
+Exemplo de uso:
+arduino
+Copy code
+GET http://localhost:5000/
+2. GET /register
+Descrição: Exibe a página de registro para criar uma nova conta de usuário.
+Método: GET
+Exemplo de uso:
+bash
+Copy code
+GET http://localhost:5000/register
+3. POST /register
+Descrição: Registra um novo usuário com as informações fornecidas.
+Método: POST
+Parâmetros:
+username (string): O nome de usuário desejado.
+password (string): A senha desejada.
+Exemplo de uso:
+bash
+Copy code
+POST http://localhost:5000/register
+{
+    "username": "exemplo_usuario",
+    "password": "senha_segura123!"
+}
+4. GET /login
+Descrição: Exibe a página de login para autenticar um usuário existente.
+Método: GET
+Exemplo de uso:
+bash
+Copy code
+GET http://localhost:5000/login
+5. POST /login
+Descrição: Realiza a autenticação do usuário com base nas informações fornecidas.
+Método: POST
+Parâmetros:
+username (string): O nome de usuário cadastrado.
+password (string): A senha associada ao nome de usuário.
+Exemplo de uso:
+bash
+Copy code
+POST http://localhost:5000/login
+{
+    "username": "exemplo_usuario",
+    "password": "senha_segura123!"
+}
+6. GET /dashboard
+Descrição: Exibe a página do painel de controle, disponível somente para usuários autenticados.
+Método: GET
+Exemplo de uso:
+bash
+Copy code
+GET http://localhost:5000/dashboard
+7. GET /logout
+Descrição: Realiza o logout do usuário autenticado.
+Método: GET
+Exemplo de uso:
+bash
+Copy code
+GET http://localhost:5000/logout
+Respostas
+200 OK: A solicitação foi bem-sucedida.
+302 Found: Redirecionamento após uma ação bem-sucedida (por exemplo, após o registro ou login).
+400 Bad Request: A solicitação foi malformada ou faltam parâmetros obrigatórios.
+401 Unauthorized: O usuário não está autenticado para acessar a página do painel de controle.
+403 Forbidden: O usuário não tem permissão para acessar uma determinada página (por exemplo, após tentativa de registro com nome de usuário existente).
+500 Internal Server Error: Um erro interno ocorreu na aplicação.
+Esta documentação fornece uma visão geral das rotas e métodos disponíveis na aplicação. Certifique-se de realizar testes adequados e adicionar mais detalhes à documentação, se necessário, para atender aos requisitos específicos do seu projeto.
